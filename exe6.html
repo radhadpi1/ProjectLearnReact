@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Details</title>
+    <style>
+        div#maincontent {
+            height: 150px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+        div#heading {
+            text-decoration: bold;
+            text-align: center;
+            margin-top: 80px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: center;
+            color: #08438E;
+            background-color: #CEE2FA;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+        h4 {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="heading">
+            <b>Theatre Drama</b>
+        </div>
+        <div id="maincontent">
+            <h4>Your Ticket Details:</h4>
+            <br>
+            <script>
+                //Write the code to calculate the total price and discounted price for the tickets
+                //let noOfTickets = 3
+                let noOfTickets = prompt("number of tickets u wish to book:?", 2)
+                let percost = 9
+                let totalcost = 9*noOfTickets
+                let costAfterDiscount = 0
+                let percentage = 0.05
+                let discountperticket =0
+                let totaldiscount = 0
+                
+                
+                 if(noOfTickets > 0 && noOfTickets <= 5){
+                    if(noOfTickets <= 2) {
+                        costAfterDiscount = totalcost - totaldiscount 
+                        
+                    }
+                    else 
+                    {
+                       costAfterDiscount = executeforLoop(noOfTickets)
+                       // costAfterDiscount = executewhileLoop(noOfTickets)
+                       // costAfterDiscount = executeDoWhileLoop(noOfTickets)
+                        
+
+                    }
+                    
+                document.write('Total number of seats booked: '+noOfTickets+"<br>")
+                document.write('Total cost of '+noOfTickets+ ' tickets: $'+ totalcost+"<br>")
+                document.write('YOUR discount is: '+totaldiscount+"<br>")
+                document.write('Total cost after discount is: $'+ costAfterDiscount)
+                }
+                else {
+                    document.write('Booking not allowed')
+                }
+                 
+                function executeforLoop(noOfTickets) {
+                    let percentage = 0.05
+                        for(let i=1;i<=noOfTickets;i++) 
+                        {
+                        discountperticket = percentage* percost
+                        percentage = percentage + 0.02
+                        totaldiscount = totaldiscount + discountperticket
+                        }
+                        costAfterDiscount = totalcost - totaldiscount
+                    return costAfterDiscount 
+                }
+                function executewhileLoop(noOfTickets) {
+                    let percentage = 0.05
+                    let i=1
+                    while (i<=5) {
+                        discountperticket = percentage* percost
+                        percentage = percentage + 0.02
+                        totaldiscount = totaldiscount + discountperticket
+                        i++;
+                    }
+                    costAfterDiscount = totalcost - totaldiscount 
+                    return costAfterDiscount 
+
+                }
+
+                function executeDoWhileLoop(noOfTickets) {
+                    let percentage = 0.05
+                    do {
+                        discountperticket = percentage * percost;
+                        percentage = percentage + 0.02 
+                        totaldiscount = totaldiscount + discountperticket
+                        i--;
+                    }while(i>2)
+
+                }
+                
+            </script>
+        </div>
+    </center>
+</body>
+</html>
